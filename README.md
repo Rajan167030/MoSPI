@@ -1,47 +1,64 @@
-MoSPI
 
-## Chatbot Feature
+# MoSPI Survey & Analytics Platform
 
-This project now includes a floating AI helper chatbot powered by Google Gemini. It can:
+MoSPI is a modern survey management and analytics app inspired by the Ministry of Statistics & Programme Implementation (Government of India). It enables users to create, manage, and analyze official surveys with advanced features, including AI-powered assistance.
 
-- Explain how to use the app (tabs, creating surveys, analytics)
-- Suggest best practices for unbiased survey questions
-- Provide guidance on statistical questionnaire design
+## Key Features
 
-### Setup
+- **Survey Creation & Customization:** Build and edit surveys with flexible question types and modules.
+- **Survey Profiles & Metadata:** Browse official survey profiles and details, including domains, periodicity, and key indicators.
+- **Response Collection & Analysis:** Collect responses, view analytics, and visualize data with charts and quality indicators.
+- **AI Chatbot Helper:** Floating Gemini-powered chatbot for guidance on survey design, analytics, and best practices.
+- **Question Bank Management:** Access and manage official question banks and survey details.
+- **User Authentication & Consent:** Secure sign-in and privacy-focused consent forms.
+- **Multi-language Support:** Switch survey language for broader accessibility.
+- **Survey Export & Reporting:** Export survey data and access latest official reports.
+- **Recent Activity & Quick Actions:** Track recent survey activity and perform common tasks quickly.
+
+## Technologies Used
+
+- **React Native** (Expo)
+- **expo-router** for navigation
+- **Google Gemini API** for AI chatbot
+- **TypeScript** for type safety
+- **NativeWind** for styling
+- **Lucide Icons** for UI
+
+## Setup
 
 1. Copy `.env.example` to `.env` and add your Gemini API key:
-	`EXPO_PUBLIC_GEMINI_API_KEY=your_key_here`
-2. Install deps (includes cross-env for Windows):
-	`npm install`
-3. Start the dev server:
-	`npm run dev`
+	```
+	EXPO_PUBLIC_GEMINI_API_KEY=your_key_here
+	```
+2. Install dependencies:
+	```
+	npm install
+	```
+3. Start the development server:
+	```
+	npm run dev
+	```
 
-### Usage
+## Usage
 
-Tap the purple Ask bubble in the bottom-right to open the chat window. Messages are sent to the Gemini 1.5 Flash model via the public REST API.
+- Tap the purple "Ask" bubble to open the AI chatbot.
+- Navigate tabs for Home, Create, Survey, Analytics, and Settings.
+- View official survey profiles and download reports.
+- Export survey data and view analytics.
 
-If no key is set, the bot will inform you. Keys exposed with the `EXPO_PUBLIC_` prefix are accessible in the client bundle—only use keys with restricted quota / domain; do not expose sensitive credentials.
+## Privacy
 
-### Environment Variable
+- User responses are confidential and used only for official statistical purposes.
+- AI chatbot queries are sent to Google APIs; avoid sharing personal or sensitive information.
+- Data retention follows government policy (5 years).
 
-`EXPO_PUBLIC_GEMINI_API_KEY` – Public (client side) key for Gemini. Required for live responses.
+## Customization
 
-### Customization
+- Edit `components/Chatbot.tsx` for chatbot prompt, model parameters, and UI.
+- Adjust survey modules and question types in `SurveyBuilder.tsx`.
 
-Edit `components/Chatbot.tsx` to adjust:
+## Contribution
 
-- System prompt (`SYSTEM_PROMPT`)
-- Model endpoint or parameters (`temperature`, `maxOutputTokens`)
-- UI styles in the `styles` object
+Contributions are welcome! Please open issues or pull requests for bug fixes, improvements, or new features.
 
-### Privacy Note
-
-User questions are sent directly to Google APIs. Avoid sending PII or confidential data.
-
-### Future Ideas
-
-- Streamed responses
-- Server proxy for secure key handling
-- Contextual grounding based on current screen
 
